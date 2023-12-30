@@ -1,23 +1,25 @@
-CREATE DATABASE finalproject;
+CREATE DATABASE car_rental_db;
 
-use finalproject;
+use car_rental_db;
 
-CREATE TABLE car(
-    plate_id varchar(8) PRIMARY KEY ,
+use car_rental_db;
+
+CREATE TABLE car (
+    plate_id varchar(8) PRIMARY KEY,
     model varchar(255) NOT NULL,
     make varchar(255) NOT NULL,
     body_style varchar(255) NOT NULL,
     `year` year NOT NULL,
     price decimal(10,2) NOT NULL,
-    registration_date date DEFAULT CURRENT_DATE,
+    registration_date timestamp DEFAULT CURRENT_TIMESTAMP,
     color varchar(255) NOT NULL,
     office_id int NOT NULL
-    );
+);
 
 -- 0-> available, 1-> in maintainance, 2-> being cleaned, 3-> rented
 CREATE TABLE car_status(
     status_code SMALLINT DEFAULT 0,
-    status_date datetime DEFAULT CURRENT_DATE,
+    status_date timestamp DEFAULT CURRENT_TIMESTAMP,
     plate_id varchar(8),
     PRIMARY KEY (status_code,status_date,plate_id)
     );
@@ -44,7 +46,7 @@ CREATE TABLE reservation(
     payment_date date DEFAULT NULL,
     pickup_date date  NOT NULL,
     return_date date  NOT NULL,
-    reserve_date date DEFAULT CURRENT_DATE,
+    reserve_date timestamp DEFAULT CURRENT_TIMESTAMP,
     plate_id varchar(8) NOT NULL,
     ssn CHAR(6) NOT NULL
     );
