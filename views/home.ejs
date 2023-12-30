@@ -1,0 +1,88 @@
+<%- include('partials/header') %>
+
+
+  <!-- Nav Bar -->
+  <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand black" href="">
+      <img src="https://tse1.mm.bing.net/th?id=OIP.BrvR9-atH0KR2dbpeW0wxAHaF7&pid=Api&P=0&h=220" alt="logo" style="height: 4em;">
+      Carental
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+
+        <li class="nav-item ">
+          <a class="nav-link display-6 " href="/signin">Sign in</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link  display-6" href="#features">Features</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link  display-6" href="#footer">Contact us</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link  display-6" href="/office_signup">Become our partner</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <div id="title" class="row justify-content-center main ">
+
+    <div class="col-lg-6 ">
+      <h3 class="display-5 black">In the journey of life, our cars carry not just passengers but stories, memories, and the echoes of adventures.</h3>
+        <img src="https://media4.giphy.com/media/RKTFQZpTOuLaoCcn71/200.webp?cid=ecf05e47ff868bvi9g8iygv8fn89ictp8l4zop3h8m3mqu22&ep=v1_gifs_search&rid=200.webp&ct=g" alt="hey">
+    </div>
+
+    <div class="col-lg-6 ">
+          <form method="post" action="/signup-landing">
+            <div >
+                <h3 class="display-5 black">Start your journey!</h3>
+            </div>
+            <div class="row mb-3 ">
+                <div class="col">
+                    <input type="email" class="form-control myinput" placeholder="E-Mail" name="email" required ></input>
+                </div>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-light mybtn g black" >Sign up</button>
+            </div>
+          </form>
+      </div>
+  </div>
+
+
+  <section id="features" class="white-section container-fluid">
+
+    <div class="row">
+        <div class="feature-box col-lg-4" style="color: azure;">
+            <i class="icon fa-solid fa-keyboard fa-4x"></i>
+            <h3  style="margin-top:50px; ">Book Now, Pay Later</h3>
+            <p style="color: azure;">You don't have to pay at the time of reservation, You get to choose when to pay.</p>    
+        </div>
+
+        <div class="feature-box col-lg-4 " style="color: azure;">
+            <i class="icon fa-solid fa-gears fa-4x"></i>
+            <h3  style="margin-top:50px;" style="color: azure;">0% Commission</h3>
+            <p style="color: azure;"> You only pay for the car you get, no commision, no interest, no bullshit.</p>
+        </div>
+
+        <div class="feature-box col-lg-4" style="color: azure;">
+            <i class="icon fa-solid fa-cubes fa-4x"></i>
+            <h3   style="margin-top:50px; color: azure;">Insurance options</h3>
+            <p style="color: azure;"> We offer various insurance options for customers to choose from. This can include liability insurance, collision damage waivers, and personal accident insurance.</p>
+        </div>
+      </div>
+</section>
+
+
+  <%- include('partials/footer') %>

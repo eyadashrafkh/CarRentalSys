@@ -1,0 +1,75 @@
+<%- include('partials/header') %>
+
+
+  <nav class="navbar navbar-expand-lg ">
+    <a class="navbar-brand black" href="/">
+      <img src="https://tse1.mm.bing.net/th?id=OIP.BrvR9-atH0KR2dbpeW0wxAHaF7&pid=Api&P=0&h=220" alt="logo"
+        style="height: 4em;">
+      Carental
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+
+        <li class="nav-item ">
+          <a class="nav-link display-6 " href="/">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link  display-6" href="#footer">Contact us</a>
+        </li>
+
+      </ul>
+    </div>
+  </nav>
+
+
+
+  <div class="container mt-7 text-center center-div">
+    <div class="mx-auto">
+      <div class="row center">
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <h1>Sign in</h1>
+              <!-- Makes POST request to /signin route -->
+              <form action="/signin" method="POST">
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" class="form-control" placeholder="Email" name="email" required>
+                </div>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input type="password" class="form-control myinput c" placeholder="Password" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-dark">Signin</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-7">
+    <div class="row center">
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-body">
+            <a class="btn btn-block" href="/auth/google" role="button">
+              <i class="fab fa-google"></i>
+              Sign In with Google
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <%- include('partials/footer') %>
