@@ -38,7 +38,7 @@
             <div class="card-body">
               <h1>Sign in</h1>
               <!-- Makes POST request to /signin route -->
-              <form action="/signin" method="POST">
+              <form method="post" action="/signin">
                 <div class="form-group">
                   <label for="email">Email</label>
                   <input type="email" class="form-control" placeholder="Email" name="email" required>
@@ -47,7 +47,7 @@
                   <label for="password">Password</label>
                   <input type="password" class="form-control myinput c" placeholder="Password" name="password" required>
                 </div>
-                <button type="submit" class="btn btn-dark">Signin</button>
+                <button type="submit" class="btn btn-dark" name="signinButton" value="Sign In">Sign In</button>
               </form>
             </div>
           </div>

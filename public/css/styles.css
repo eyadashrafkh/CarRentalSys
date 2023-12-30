@@ -143,3 +143,16 @@ p {
   justify-content: center;
   text-align: center;
 }
+
+.date {
+  padding: 2rem;
+}
+
+.mybtn {
+  margin: 1rem 1rem;
+  width: 10%;
+}
+
+.reserve-btn1 {
+  width: 20%
+}

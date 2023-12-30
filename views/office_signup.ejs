@@ -1,0 +1,121 @@
+<%- include('partials/header') %>
+
+    <nav class="navbar navbar-expand-lg ">
+        <a class="navbar-brand black" href="/">
+            <img src="https://tse1.mm.bing.net/th?id=OIP.BrvR9-atH0KR2dbpeW0wxAHaF7&pid=Api&P=0&h=220" alt="logo"
+                style="height: 4em;">
+            Carental
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+
+                <li class="nav-item ">
+                    <a class="nav-link display-6 " href="/">Home</a>
+                </li>
+
+                <li class="nav-item ">
+                    <a class="nav-link display-6 " href="/signin">Sign in</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link  display-6" href="#footer">Contact us</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="container mt-7">
+        <div class="row center">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <!-- Makes POST request to /signup route -->
+                        <div style="padding-bottom: 20px;">
+                            <h1 class="display-6 myheader">Register your office</h1>
+                        </div>
+                        <form action="/office-signup" method="POST">
+
+                            <div class="form-group">
+                                <label for="name">Office Name</label>
+                                <input type="username" name="name" class="form-control myinput a"
+                                    placeholder="Office Name" required maxlength="32" required></input>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input id="email" type="email" class="form-control myinput b" placeholder="E-Mail"
+                                    name="email" maxlength="64" required></input>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone_no">Phone_no</label>
+                                <input id="phone" type="tel" class="form-control myinput b" placeholder="Phone Number"
+                                    name="phone_no" minlength="11" maxlength="11" required></input>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="country">country</label>
+                                <input type="text" class="form-control myinput b" placeholder="County" name="country"
+                                    required required maxlength="64"></input>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="city">city</label>
+                                <input type="text" class="form-control myinput b" placeholder="City" name="city"
+                                    required maxlength="64"></input>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="building_no">building_no</label>
+                                <input type="text" class="form-control myinput b" placeholder="Building Number"
+                                    name="building_no" maxlength="16" required></input>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input id="pass1" type="password" class="form-control myinput c" placeholder="Password"
+                                    name="password" required></input>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="confirm">Confirm Password</label>
+                                <input id="pass2" type="password" class="form-control myinput d"
+                                    placeholder="Confirm Password" name="confirm" required></input>
+                            </div>
+
+                            <button type="submit" class="btn btn-dark">Signup</button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container mt-5">
+        <div class="row center">
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <a class="btn btn-block" href="/auth/google" role="button">
+                            <i class="fab fa-google"></i>
+                            Sign Up with Google
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include('partials/footer') %>
