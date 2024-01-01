@@ -95,6 +95,35 @@ app.get("/add_car", (req, res) => {
     res.render("add_car", { officeName: officeName, office_id: office_id }); // Pass the name and id to the view
 });
 
+app.get("/admin", (req, res) => {
+    res.render("home_admin");
+});
+
+app.get("/customers_view", (req, res) => {
+    res.render("customers_view");
+});
+
+app.get("/offices_view", (req, res) => {
+    res.render("offices_view");
+});
+
+app.get("/res-search", (req, res) => {
+    res.render("res_search");
+});
+
+app.get("/payments-search", (req, res) => {
+    res.render("res_search");
+});
+
+app.get("/customer-res-search", (req, res) => {
+    res.render("customer_res_search");
+});
+
+app.get("/car-res-search", (req, res) => {
+    res.render("car_res_search");
+});
+
+
 /*post requests*/
 // ---------------------------------------------------------------------------------------------------------------------
 
@@ -602,6 +631,46 @@ app.post("/remove_car", (req, res) => {
             res.send({ success: false, message: "You are not authorized to change the status of this car" });
         }
     });
+});
+
+// reservations at certain period search
+app.post("/get-reservations-within-period", (req, res) => {
+    var start_date = req.body.start_date;
+    var end_date = req.body.end_date;
+    //get the reservation info from the database within the period
+    db.query("SELECT * FROM reservation as r NATURAL INNER JOIN customer INNER JOIN car as c on c.plate_id = r.plate_id WHERE reserve_date BETWEEN ? AND ?",
+        [start_date, end_date], (err, result) => {
+            if (err)
+                return res.send({ message: err });
+            res.send({ reservation: result, message: "success" });
+        });
+});
+
+// customer reservation search
+app.post("/get-customer-reservation", (req, res) => {
+    //get decoded token from the request
+    var ssn = req.body.ssn;
+    if (ssn == null)
+        ssn = req.body.ssn;
+    ///get the reservation info from the database
+    db.query("SELECT *, ((DATEDIFF(return_date,pickup_date)+1)*price )as revenue FROM reservation as r NATURAL INNER JOIN customer INNER JOIN car as c on c.plate_id = r.plate_id WHERE r.ssn = ?",
+        [ssn], (err, result) => {
+            if (err)
+                return res.send({ message: err });
+            res.send({ reservation: result, message: "success" });
+        });
+});
+
+//car reservation search
+app.post("/get-car-reservation", (req, res) => {
+    var plate_id = req.body.plate_id;
+    ///get the reservation info from the database
+    db.query("SELECT * FROM reservation NATURAL INNER JOIN car WHERE plate_id = ?",
+        [plate_id], (err, result) => {
+            if (err)
+                return res.send({ message: err });
+            res.send({ reservation: result, message: "success" });
+        });
 });
 
 
