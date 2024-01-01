@@ -1,0 +1,188 @@
+<%- include('partials/header') %>
+
+    <div class="container-fluid" style="padding-top:0px;">
+        <div class="row">
+            <div class="col">
+                <h1 class="text-center black">Carental <img
+                        src="https://tse1.mm.bing.net/th?id=OIP.BrvR9-atH0KR2dbpeW0wxAHaF7&pid=Api&P=0&h=220" alt="logo"
+                        style="height: 4em;"></h1>
+            </div>
+            <div class="col">
+                <h2 class="text-center black display-6" style="padding-top:50px;"><span></span>
+                    <%= officeName %></span>
+                </h2>
+            </div>
+            <div class="col">
+                <div class="col text-center" style="padding-top:50px;">
+                    <form action="/logout" method="POST">
+                        <button type="submit" class="col btn btn-outline-danger" style="margin:10px; width: 33%;">Log
+                            Out</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row" style="margin:50px;">
+            <div class="col-4 m-0">
+                <h3 class="text-center black display-6">Your current Reservations</h3>
+            </div>
+            <div class="col"></div>
+            <div class="col-2">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Res NO.</th>
+                            <th scope="col">Plate ID</th>
+                            <th scope="col">Customer Name</th>
+                            <th scope="col">Res Date</th>
+                            <th scope="col">Pickup Date</th>
+                            <th scope="col">Return Date</th>
+                            <th scope="col">Total Revenue</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if (officeReservations) { %>
+                            <% officeReservations.forEach(reservation=> { %>
+                                <tr>
+                                    <td>
+                                        <%= reservation.reservation_no %>
+                                    </td>
+                                    <td>
+                                        <%= reservation.plate_id %>
+                                    </td>
+                                    <td>
+                                        <%= reservation.customer_name %>
+                                    </td>
+                                    <td>
+                                        <%= reservation.reserve_date %>
+                                    </td>
+                                    <td>
+                                        <%= reservation.pickup_date %>
+                                    </td>
+                                    <td>
+                                        <%= reservation.return_date %>
+                                    </td>
+                                    <td>
+                                        <%= reservation.revenue %>
+                                    </td>
+                                </tr>
+                                <% }); %>
+                                    <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row" style="margin:50px;">
+            <div class="col-3 m-0">
+                <h3 class="text-center black display-6">Your current cars</h3>
+            </div>
+            <div class="col"></div>
+            <div class="col-1">
+                <form action="/add_car" method="POST">
+                    <input type="hidden" name="office_id" value="<%= office_id %>">
+                    <input type="hidden" name="officeName" value="<%= officeName %>">
+                    <button type="submit" class="col btn btn-outline-success">Add Car</button>
+                </form>
+            </div>
+        </div>
+
+
+        <div class="row" style="margin:50px;">
+            <div class="col-12">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Plate ID</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Registration Date</th>
+                            <th scope="col">Make</th>
+                            <th scope="col">Model</th>
+                            <th scope="col">Body Style</th>
+                            <th scope="col">Color</th>
+                            <th scope="col">Year</th>
+                            <th scope="col">Price/Day</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if (officeCars) { %>
+                            <% officeCars.forEach(car=> { %>
+                                <tr>
+                                    <td>
+                                        <%= car.plate_id %>
+                                    </td>
+                                    <% dis='' ; %>
+                                    <%if (car.status_code === 3) {%>
+                                        <% dis="disabled"; %>
+                                            <% } %>
+                                    <% statuses=["Available", "In Maintenance" , "Being Cleaned" , "Rented" ]; %>
+                                    <TD>
+                                        <form>
+                                            <input type="hidden" value="<%= office_id %>" id="office_id">
+                                            <input type="hidden" value="<%= officeName %>" id="officeName">
+                                            <input type="hidden" value="<%= car.plate_id %>"
+                                                id="plate_id">
+                                            <select <%= dis %>>
+                                                <option <%= car.status_code === 0 ? 'selected' : '' %>>
+                                                    <%= statuses[0] %>
+                                                </option>
+                                                <option <%= car.status_code === 1 ? 'selected' : '' %>>
+                                                    <%= statuses[1] %>
+                                                </option>
+                                                <option <%= car.status_code === 2 ? 'selected' : '' %>>
+                                                    <%= statuses[2] %>
+                                                </option>
+                                                <option <%= car.status_code === 3 ? 'selected' : '' %> disabled>
+                                                    <%= statuses[3] %>
+                                                </option>
+                                            </select>
+                                            <input type="hidden" name="plate_id" value="<%= car.plate_id %>">
+                                        </form>
+                                    </TD>
+                                    <td>
+                                        <%= car.registration_date %>
+                                    </td>
+                                    <td>
+                                        <%= car.make %>
+                                    </td>
+                                    <td>
+                                        <%= car.model %>
+                                    </td>
+                                    <td>
+                                        <%= car.body_style %>
+                                    </td>
+                                    <td>
+                                        <%= car.color %>
+                                    </td>
+                                    <td>
+                                        <%= car.year %>
+                                    </td>
+                                    <td>
+                                        <%= car.price %>
+                                    </td>
+                                    <td>
+                                        <form action="/remove_car" method="POST">
+                                            <input type="hidden" name="plate_id" value="<%= car.plate_id %>">
+                                            <input type="hidden" name="office_id" value="<%= office_id %>">
+                                            <input type="hidden" name="officeName" value="<%= officeName %>">
+                                            <button class="hover-image"
+                                                style="padding: 0;border: none;background: none;" type="submit">
+                                                <img src="https://tse2.mm.bing.net/th?id=OIP.j_kNYSJ_UZ01QuOJzRG3lAHaHO&pid=Api&P=0&h=220"
+                                                    width=25 height=25>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                                <% }); %>
+                                    <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="/js/home_office.js"></script>
+    <%- include('partials/footer') %>

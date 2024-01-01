@@ -1,0 +1,109 @@
+<%- include('partials/header') %>
+
+    <nav class="navbar navbar-expand-lg ">
+        <a class="navbar-brand black" href="/">
+            <img src="https://tse1.mm.bing.net/th?id=OIP.BrvR9-atH0KR2dbpeW0wxAHaF7&pid=Api&P=0&h=220" alt="logo"
+                style="height: 4em;">
+            Carental
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+                <li class="nav-item ">
+                    <a class="nav-link display-6 " href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link  display-6" href="#footer">Contact us</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="container mt-7">
+        <div class="row center">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div style="padding-bottom: 20px;">
+                            <h1 class="display-6 myheader">Add new Car</h1>
+                        </div>
+                        <form action="/add_car_to_db" method="POST">
+                            <input type="hidden" name="officeName" value="<%= officeName %>">
+                            <input type="hidden" name="office_id" value="<%= office_id %>">
+
+                            <div class="form-group">
+                                <label for="plate_id">plate_id</label>
+                                <input type="text" class="form-control myinput a" placeholder="Plate ID" name="plate_id"
+                                    maxlength="8" required></input>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="model">Model</label>
+                                <input type="text" class="form-control myinput b" placeholder="Model" name="model"
+                                    required maxlength="32"></input>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="make">Make</label>
+                                <input type="text" class="form-control myinput b" placeholder="Make" name="make"
+                                    required maxlength="32"></input>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Body_style">Body_style</label>
+                                <input type="text" class="form-control myinput b" placeholder="Body_style"
+                                    name="Body_style" required maxlength="32"></input>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="color">Color</label>
+                                <input type="text" class="form-control myinput b" placeholder="Color" name="color"
+                                    required maxlength="32"></input>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="year">Year</label>
+                                <input type="text" class="form-control myinput b" placeholder="year" name="year"
+                                    required maxlength="4"></input>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="price">Price/Day</label>
+                                <input type="text" class="form-control myinput b" placeholder="Price/Day" name="price"
+                                    required></input>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="photo1">Photo Link</label>
+                                <input type="text" class="form-control myinput b" placeholder="Photo Link" name="photo1"
+                                    required></input>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="photo2">Photo Link</label>
+                                <input type="text" class="form-control myinput b" placeholder="Photo Link" name="photo2"
+                                    required></input>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="photo3">Photo Link</label>
+                                <input type="text" class="form-control myinput b" placeholder="Photo Link" name="photo3"
+                                    required></input>
+                            </div>
+
+                            <button type="submit" class="btn btn-dark">Add</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <%- include('partials/footer') %>
