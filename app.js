@@ -100,11 +100,36 @@ app.get("/admin", (req, res) => {
 });
 
 app.get("/customers_view", (req, res) => {
-    res.render("customers_view");
+    db.query("SELECT * FROM customer", (err, result) => {
+        if (err)
+            return res.send({ message: err });
+
+        const customers = result;
+
+        res.render("customers_view", { customers: customers });
+    });
+});
+
+app.get("/cars_view", (req, res) => {
+    db.query("SELECT * FROM car", (err, result) => {
+        if (err)
+            return res.send({ message: err });
+
+        const cars = result;
+
+        res.render("cars_view", { cars: cars });
+    });
 });
 
 app.get("/offices_view", (req, res) => {
-    res.render("offices_view");
+    db.query("SELECT * FROM office", (err, result) => {
+        if (err)
+            return res.send({ message: err });
+
+        const offices = result;
+
+        res.render("offices_view", { Offices: offices });
+    });
 });
 
 app.get("/res-search", (req, res) => {
