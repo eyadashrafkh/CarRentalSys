@@ -82,30 +82,27 @@ http://localhost:3000
 
 ### Landing Page
 
-![image](https://user-images.githubusercontent.com/41492875/210100324-b5569c69-7bb2-432f-9106-504f0d384faa.png)
+![Screenshot 2024-01-12 133322](https://github.com/eyadashrafkh/CarRentalSys/assets/97104406/48ca644d-adf7-4817-a806-e322cb1dd4b6)
 
 ### Office Agent Dashboard
 
-![image](https://user-images.githubusercontent.com/41492875/210100300-802136e9-4684-4775-9274-a7fb6be4dfd8.png)
+![Screenshot 2024-01-12 133543](https://github.com/eyadashrafkh/CarRentalSys/assets/97104406/e3d63f1b-c877-4643-953a-919f6f3852b9)
 
 
 ### Customer Dashboard
 
-![image](https://user-images.githubusercontent.com/41492875/210100281-281f7fd9-f4ed-445e-8c9f-98f9453d117e.png)
+![Screenshot 2024-01-12 133619](https://github.com/eyadashrafkh/CarRentalSys/assets/97104406/2deb4895-3329-493f-9a71-de565614fe03)
 
 
 ### Reservation Page
 
-![image](https://user-images.githubusercontent.com/41492875/210100077-52ad34b2-dd1c-49d3-abdc-0a3b4a89504e.png)
+![Screenshot 2024-01-12 133630](https://github.com/eyadashrafkh/CarRentalSys/assets/97104406/52415e8b-f72c-418e-bdea-50f8e0445855)
 
 
 ## Contributers
 
-1. [Yousef Kotp](https://github.com/yousefkotp)
+1. [Iyad Ashraf](https://github.com/eyadashrafkh)
 
-2. [Mohamed Farid](https://github.com/MohamedFarid612)
+2. [Omar Atef](https://github.com/Omar-Atef-Bakr)
 
-3. [Adham Mohamed](https://github.com/adhammohamed1)
-
-4. [Hossam Elshamy](https://github.com/hossamelshamyy)
 
